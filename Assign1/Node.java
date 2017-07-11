@@ -2,38 +2,52 @@ package Assign1;
 
 import java.lang.*;
 
-/**
- * Created by Nicholas Harras on 7/10/2017.
- */
 public class Node {
     public int x;
     public int y;
-    public Boolean isClear;
+    public Boolean isBlocked;
+    public Boolean isDiscovered;
     //private int f;
     //private int g;
     //private int h;
-    public Node next;
+    public Node next; // To be used for stacks and queues
+    public Node north; // Used to keep track of neighbors
+    public Node south;
+    public Node east;
+    public Node west;
 
-    public Boolean getClarity(double p){
+    public Boolean getIsBlocked(double p){
         if(Math.random() >= p){
-            return true;
-        }
-        else{
             return false;
         }
+        else{
+            return true;
+        }
     }
 
-    public Node(int x, int y, double p){
+    public Node(int x, int y, double p, Node[][] grid){
         this.x = x;
         this.y = y;
-        this.isClear = getClarity(p);
+        this.isBlocked = getIsBlocked(p);
+        this.isDiscovered = false;
         this.next = null;
-    }
 
-    public Node(int x, int y, double p, Node next){
-        this.x = x;
-        this.y = y;
-        this.isClear = getClarity(p);
-        this.next = next;
+        this.north = null;
+        this.south = null;
+        this.east = null;
+        this.west = null;
+
+        if(x > 0) {
+            this.north = grid[x - 1][y];
+        }
+        if(x < Main.length-1) {
+            this.south = grid[x + 1][y];
+        }
+        if(y < Main.width-1) {
+            this.east = grid[x][y + 1];
+        }
+        if(y > 0) {
+            this.west = grid[x][y - 1];
+        }
     }
 }
