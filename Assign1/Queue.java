@@ -2,9 +2,6 @@ package Assign1;
 
 import java.util.NoSuchElementException;
 
-/**
- * Created by Nicholas Harras on 7/11/2017.
- */
 public class Queue {
     private Node first;
     private Node last;
