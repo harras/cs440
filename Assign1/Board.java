@@ -54,6 +54,14 @@ public class Board {
         }
     }
 
+    public void eraseBoard(TreeNode route) {
+        TreeNode curr = route;
+        while (curr != null) {
+            this.grid[curr.x][curr.y].isPath = false;
+            curr = curr.parent;
+        }
+    }
+
     public int length() {
         return this.length;
     }
