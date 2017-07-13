@@ -46,6 +46,14 @@ public class Board {
         this.dest.isBlocked = false;
     }
 
+    public void updateBoard(TreeNode route) {
+        TreeNode curr = route;
+        while (curr != null) {
+            this.grid[curr.x][curr.y].isPath = true;
+            curr = curr.parent;
+        }
+    }
+
     public int length() {
         return this.length;
     }
@@ -58,7 +66,7 @@ public class Board {
         //Prints the grid
         for (int i = 0; i < this.length; i++) {
             for (int j = 0; j < this.width; j++) {
-                if(this.grid[i][j] == this.src || this.grid[i][j] == this.dest){
+                if(this.grid[i][j] == this.src || this.grid[i][j] == this.dest || this.grid[i][j].isPath){
                     System.out.print(" X ");
                 }
                 else if(this.grid[i][j].isBlocked == false){

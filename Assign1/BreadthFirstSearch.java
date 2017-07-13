@@ -5,8 +5,9 @@ import java.util.ArrayList;
 
 public class BreadthFirstSearch {
 
-    public void runBFS(Board b, Paths p) {
+    public TreeNode runBFS(Board b) {
         Node curr;
+        Paths p = new Paths(b);
         ArrayList<Node> visited = new ArrayList<Node>();
         Queue<Node> q = new LinkedList<Node>();
         q.add(b.grid[0][0]);
@@ -25,9 +26,17 @@ public class BreadthFirstSearch {
                     continue;
                 }
                 if (!child.isBlocked) {
+                    p.addChild(curr, child);
                     q.add(child);
                 }
             }
         }
+        /*
+        TreeNode t = p.shortestPath();
+        while (t!=null) {
+            System.out.println(t);
+            t=t.parent;
+        }*/
+        return p.shortestPath();
     }
 }

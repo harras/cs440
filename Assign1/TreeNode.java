@@ -37,4 +37,8 @@ public class TreeNode {
     public boolean hasNoChildren() {
         return this.children.isEmpty();
     }
+
+    public String toString() {
+        return "(" + this.y + ", " + this.x + ")";
+    }
 }

@@ -8,6 +8,7 @@ public class Node {
     public int y;
     public Boolean isBlocked;
     public Boolean isDiscovered;
+    public Boolean isPath = false;
     //private int f;
     //private int g;
     //private int h;
