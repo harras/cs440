@@ -78,11 +78,23 @@ public class Node implements Comparator<Node>, Comparable<Node> {
     }
 
     public int compareTo(Node a) {
-        return (int)(this.distance - a.distance);
+        if (this.distance < a.distance) {
+            return -1;
+        } else if (this.distance == a.distance) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
     public int compare(Node a, Node b) {
-        return (int)(a.distance - b.distance);
+        if (a.distance < b.distance) {
+            return -1;
+        } else if (a.distance == b.distance) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
     public String toString() {
