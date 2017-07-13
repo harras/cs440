@@ -2,10 +2,13 @@ package Assign1;
 
 import java.lang.*;
 import java.util.ArrayList;
+import java.lang.Comparable;
+import java.util.Comparator;
 
-public class Node {
+public class Node implements Comparator<Node>, Comparable<Node> {
     public int x;
     public int y;
+    public double distance;
     public Boolean isBlocked;
     public Boolean isDiscovered;
     public Boolean isPath = false;
@@ -62,6 +65,18 @@ public class Node {
             this.west = grid[x][y - 1];
             this.children.add(grid[x][y - 1]);
         }*/
+    }
+
+    public void euclideanDistance(Node dest) {
+        this.distance = Math.sqrt(Math.pow((this.x - dest.x), 2)+Math.pow((this.y - dest.y), 2));
+    }
+
+    public int compareTo(Node a) {
+        return (int)(this.distance - a.distance);
+    }
+
+    public int compare(Node a, Node b) {
+        return (int)(a.distance - b.distance);
     }
 
     public String toString() {
