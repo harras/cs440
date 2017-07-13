@@ -41,7 +41,7 @@ public class BreadthFirstSearch {
         }*/
         long endTime = System.nanoTime();
         long deltaTime = endTime - startTime;
-        System.out.println("Elapsed time (ms): " + deltaTime/1000000);
+        System.out.println("Elapsed time (ms): " + deltaTime/1000000 + "ms");
         return p.shortestPath();
     }
 }
