@@ -1,4 +1,5 @@
 package Assign1;
+import java.util.ArrayList;
 
 public class Board {
     public Node[][] grid;
@@ -20,6 +21,7 @@ public class Board {
             }
         }
 
+        ArrayList<Node> visited = new ArrayList<Node>();
         for (Node[] row : grid) {
             for (Node n : row) {
                 if (n.x > 0) {

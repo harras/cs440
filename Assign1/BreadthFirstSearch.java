@@ -1,23 +1,29 @@
 package Assign1;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class BreadthFirstSearch {
 
     public void runBFS(Board b, Paths p) {
         Node curr;
+        ArrayList<Node> visited = new ArrayList<Node>();
         Queue<Node> q = new LinkedList<Node>();
         q.add(b.grid[0][0]);
         while (q.peek() != null) {
             curr = q.poll();
-            System.out.println("This Node: "+curr.x+", "+curr.y);
+            visited.add(curr);
+            //System.out.println("This Node: "+curr.x+", "+curr.y);
             if (curr.x == b.dest.x && curr.y == b.dest.y) {
                 System.out.println("Success!");
                 break;
             }
-            System.out.println("Children: " + curr.children);
+            //System.out.println("Children: " + curr.children);
             for (Node child : curr.children) {
-                System.out.println(child.x+","+child.y);
+                //System.out.println(child.x+","+child.y);
+                if (visited.contains(child)) {
+                    continue;
+                }
                 if (!child.isBlocked) {
                     q.add(child);
                 }
