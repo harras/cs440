@@ -72,6 +72,11 @@ public class Node implements Comparator<Node>, Comparable<Node> {
         return this.distance;
     }
 
+    public double manhattanDistance(Node dest) {
+        this.distance = Math.abs(this.x - dest.x) + Math.abs(this.y - dest.y);
+        return this.distance;
+    }
+
     public int compareTo(Node a) {
         return (int)(this.distance - a.distance);
     }

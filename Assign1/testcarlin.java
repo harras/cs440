@@ -10,6 +10,10 @@ public class testcarlin {
         a.updateBoard(euclidPath);
         a.print();
         a.eraseBoard(euclidPath);
+        TreeNode manhatPath = as.manhattanSearch(a);
+        a.updateBoard(manhatPath);
+        a.print();
+        a.eraseBoard(manhatPath);
         TreeNode path = s.runBFS(a);
         a.updateBoard(path);
         a.print();
