@@ -5,8 +5,8 @@ public class Board {
     private int length;
     private int width;
     private double p;
-    private Node src;
-    private Node dest;
+    public Node src;
+    public Node dest;
 
     public Board(int length, int width, double p) {
         this.grid = new Node[length][width];
@@ -19,6 +19,24 @@ public class Board {
                 this.grid[i][j] = new Node(i, j, p, this.grid);
             }
         }
+
+        for (Node[] row : grid) {
+            for (Node n : row) {
+                if (n.x > 0) {
+                    n.children.add(this.grid[n.x - 1][n.y]);
+                }
+                if (n.x < this.length-1) {
+                    n.children.add(this.grid[n.x + 1][n.y]);
+                }
+                if (n.y < this.width-1) {
+                    n.children.add(this.grid[n.x][n.y + 1]);
+                }
+                if(n.y > 0) {
+                    n.children.add(this.grid[n.x][n.y - 1]);
+                }
+            }
+        }
+
         //Sets source and dest to 'clear'
         this.src = this.grid[0][0];
         this.dest = this.grid[length-1][width-1];

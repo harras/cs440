@@ -1,6 +1,7 @@
 package Assign1;
 
 import java.lang.*;
+import java.util.ArrayList;
 
 public class Node {
     public int x;
@@ -15,6 +16,7 @@ public class Node {
     public Node south;
     public Node east;
     public Node west;
+    public ArrayList<Node> children;
 
     public Boolean getIsBlocked(double p){
         if(Math.random() >= p){
@@ -36,18 +38,32 @@ public class Node {
         this.south = null;
         this.east = null;
         this.west = null;
-
+        this.children = new ArrayList<Node>();
+        //System.out.println("This Node: "+this.x+", "+this.y);
+        /*
         if(x > 0) {
+            System.out.println((x-1)+","+y);
             this.north = grid[x - 1][y];
+            this.children.add(grid[x - 1][y]);
         }
         if(x < Main.length-1) {
+            System.out.println((x+1)+","+y);
             this.south = grid[x + 1][y];
+            this.children.add(grid[x + 1][y]);
         }
         if(y < Main.width-1) {
+            System.out.println(x+","+(y+1));
             this.east = grid[x][y + 1];
+            this.children.add(grid[x][y + 1]);
         }
         if(y > 0) {
+            System.out.println((x)+","+(y-1));
             this.west = grid[x][y - 1];
-        }
+            this.children.add(grid[x][y - 1]);
+        }*/
+    }
+
+    public String toString() {
+        return "(" + this.x + ", " + this.y + ")";
     }
 }

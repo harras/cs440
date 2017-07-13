@@ -6,5 +6,7 @@ public class testcarlin {
         a.print();
         Paths p = new Paths(0,0);
         System.out.println(p.exists(new Node(0,0,0.2,new Node[2][2])));
+        BreadthFirstSearch s = new BreadthFirstSearch();
+        s.runBFS(a, p);
     }
 }

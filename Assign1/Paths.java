@@ -32,46 +32,21 @@ public class Paths {
         if (this.exists(child) != null) {
             return;
         }
-        this.exists(src).addChild(new TreeNode(child.x, child.y));
+        TreeNode n = new TreeNode(child.x, child.y, new TreeNode(child.x, child.y));
+        this.exists(src).addChild(n);
         return;
     }
 
     // Needs to be finished
-    public TreeNode shortestPath() {
+    public void shortestPath() {
         Stack<TreeNode> s = new Stack<TreeNode>();
+        int currentDepth = 0;
+        int minDepth = -1;
         s.push(this.root);
         while(!s.empty()) {
-
+            TreeNode curr = s.pop();
+            if (curr.hasNoChildren()) {
+            }
         }
-    }
-}
-
-/*
-class TreeNodeQueue<T extends TreeNode> implements Queue<T> {
-}
-*/
-
-class TreeNode {
-    public int x;
-    public int y;
-    public TreeNode parent;
-    public ArrayList<TreeNode> children;
-
-    public TreeNode() {
-        this.parent = null;
-        this.children = new ArrayList<TreeNode>();
-    }
-
-    public TreeNode(int x, int y) {
-        this.x = x;
-        this.y = y;
-        this.parent = new TreeNode();
-        this.children = new ArrayList<TreeNode>();
-    }
-
-    public void addChild(TreeNode child) {
-        child.parent = this;
-        this.children.add(child);
-        return;
     }
 }
