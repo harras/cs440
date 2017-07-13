@@ -7,10 +7,11 @@ import java.util.ArrayList;
 public class Paths {
 
     public TreeNode root;
-    private Board metadata;
+    public Board metadata;
 
     public Paths(Board b) {
-        this.root = new TreeNode(b.src.x, b.src.y);
+        double a = b.src.euclideanDistance(b.dest);
+        this.root = new TreeNode(b.src.x, b.src.y, a);
         this.metadata = b;
     }
 
@@ -34,12 +35,29 @@ public class Paths {
         if (this.exists(child) != null) {
             return;
         }
-        TreeNode n = new TreeNode(child.x, child.y, this.exists(src));
+        TreeNode n = new TreeNode(child.x, child.y, this.exists(src), child.distance);
         this.exists(src).addChild(n);
         return;
     }
 
-    // Needs to be finished
+    public TreeNode shortestEuclidPath() {
+        TreeNode curr = this.root;
+        TreeNode next = null;
+        System.out.println(curr.x);
+        while (curr != null) {
+            double minDist = curr.distance;
+            next = null;
+            for (TreeNode child : curr.children) {
+                if (child.distance < minDist) {
+                    next = child;
+                    minDist = next.distance;
+                }
+            }
+            curr = next;
+        }
+        return next;
+    }
+
     public TreeNode shortestPath() {
         Stack<TreeNode> s = new Stack<TreeNode>();
         int currentDepth = 0;

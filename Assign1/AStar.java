@@ -24,6 +24,8 @@ public class AStar {
             visited.add(curr);
             if (curr.x == b.dest.x && curr.y == b.dest.y) {
                 // Success
+                System.out.println("Found Path");
+                break;
             }
             for (Node child : curr.children) {
                 child.euclideanDistance(b.dest);

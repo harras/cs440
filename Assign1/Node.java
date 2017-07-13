@@ -8,7 +8,7 @@ import java.util.Comparator;
 public class Node implements Comparator<Node>, Comparable<Node> {
     public int x;
     public int y;
-    public double distance;
+    public double distance = 0;
     public Boolean isBlocked;
     public Boolean isDiscovered;
     public Boolean isPath = false;
@@ -67,8 +67,9 @@ public class Node implements Comparator<Node>, Comparable<Node> {
         }*/
     }
 
-    public void euclideanDistance(Node dest) {
+    public double euclideanDistance(Node dest) {
         this.distance = Math.sqrt(Math.pow((this.x - dest.x), 2)+Math.pow((this.y - dest.y), 2));
+        return this.distance;
     }
 
     public int compareTo(Node a) {
