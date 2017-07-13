@@ -2,20 +2,30 @@ package Assign1;
 
 public class testcarlin {
     public static void main(String[] args) {
-        Board a = new Board(10,10,0.2);
-        a.print();
-        BreadthFirstSearch s = new BreadthFirstSearch();
+        Board b= new Board(10,10,0.2);
+        b.print();
+        BreadthFirstSearch bs = new BreadthFirstSearch();
+        DepthFirstSearch ds = new DepthFirstSearch();
         AStar as = new AStar();
-        TreeNode euclidPath = as.euclideanSearch(a);
-        a.updateBoard(euclidPath);
-        a.print();
-        a.eraseBoard(euclidPath);
-        TreeNode manhatPath = as.manhattanSearch(a);
-        a.updateBoard(manhatPath);
-        a.print();
-        a.eraseBoard(manhatPath);
-        TreeNode path = s.runBFS(a);
-        a.updateBoard(path);
-        a.print();
+
+        TreeNode euclidPath = as.euclideanSearch(b);
+        b.updateBoard(euclidPath);
+        b.print();
+        b.eraseBoard(euclidPath);
+
+        TreeNode manhatPath = as.manhattanSearch(b);
+        b.updateBoard(manhatPath);
+        b.print();
+        b.eraseBoard(manhatPath);
+
+        TreeNode path1 = bs.runBFS(b);
+        b.updateBoard(path1);
+        b.print();
+        b.eraseBoard(path1);
+
+        TreeNode path2 = ds.runDFS(b);
+        b.updateBoard(path2);
+        b.print();
+        b.eraseBoard(path2);
     }
 }
