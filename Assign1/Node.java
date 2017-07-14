@@ -77,6 +77,12 @@ public class Node implements Comparator<Node>, Comparable<Node> {
         return this.distance;
     }
 
+    public double maxDistance(Node dest) {
+        // this.distance = 0.25*this.euclideanDistance(dest) + (1-0.25)*this.manhattanDistance(dest);
+        this.distance = Math.pow(Math.pow(Math.abs(this.x - dest.x), 0.25) + Math.pow(Math.abs(this.y - dest.y),0.25),1/0.25);
+        return this.distance;
+    }
+
     public int compareTo(Node a) {
         if (this.distance < a.distance) {
             return -1;
