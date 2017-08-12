@@ -30,6 +30,7 @@ public class DepthFirstSearch {
                     continue;
                 }
                 if(!child.isBlocked){
+                    test8.EXPAND_DONG++;
                     p.addChild(curr, child);
                     s.push(child);
                 }

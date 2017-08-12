@@ -28,6 +28,7 @@ public class BreadthFirstSearch {
                     continue;
                 }
                 if (!child.isBlocked) {
+                    test8.EXPAND_DONG++;
                     p.addChild(curr, child);
                     q.add(child);
                 }

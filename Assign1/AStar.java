@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.concurrent.TimeUnit;
 
+
 public class AStar {
 
     public TreeNode euclideanSearch(Board b) {
@@ -33,6 +34,7 @@ public class AStar {
                     continue;
                 }
                 if (!child.isBlocked) {
+                    test8.EXPAND_DONG++;
                     p.addChild(curr, child);
                     pq.add(child);
                 }
@@ -81,6 +83,7 @@ public class AStar {
                     continue;
                 }
                 if (!child.isBlocked) {
+                    test8.EXPAND_DONG++;
                     p.addChild(curr, child);
                     pq.add(child);
                 }

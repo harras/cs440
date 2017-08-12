@@ -2,7 +2,7 @@ package Assign1;
 
 public class testcarlin {
     public static void main(String[] args) {
-        Board b= new Board(12,12,0.25);
+        Board b= new Board(12,12,0.15);
         b.print();
         BreadthFirstSearch bs = new BreadthFirstSearch();
         DepthFirstSearch ds = new DepthFirstSearch();
